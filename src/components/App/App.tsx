@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import Ideas from "../Ideas/Ideas"
 import Form from "../Form/Form"
 import "./App.css"
