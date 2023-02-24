@@ -1,4 +1,4 @@
-import { FC } from "react"
+import React, { FC } from "react"
 import Card from "../Card/Card"
 import "./Ideas.css"
 
@@ -16,7 +16,7 @@ interface Props {
 const Ideas: FC<Props> = ({ideas, deleteIdea}) => {
   const IdeasList = ideas.map(idea => {
     const {id, title, description} = idea
-    
+
     return (
         <Card 
           id={id}

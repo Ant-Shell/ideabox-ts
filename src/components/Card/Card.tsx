@@ -1,4 +1,4 @@
-import { FC } from "react"
+import React, { FC } from "react"
 import "./Card.css"
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Card: FC<Props> = ({id, title, description, deleteIdea}) => {
-  
+
   return (
     <div className="card">
       <h2>{title}</h2>
