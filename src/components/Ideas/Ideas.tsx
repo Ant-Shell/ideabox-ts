@@ -1,7 +1,7 @@
 import { FC } from "react"
 // import { useDispatch, useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
-import { archiveIdea, restoreIdea } from "../../features/saveIdea/saveIdeaSlice"
+import { archiveIdea } from "../../features/saveIdea/saveIdeaSlice"
 import Card from "../Card/Card"
 import "./Ideas.css"
 
