@@ -1,5 +1,4 @@
 import { FC } from "react"
-// import { useDispatch, useSelector } from "react-redux"
 import { restoreIdea } from "../../features/saveIdea/saveIdeaSlice"
 import "./Card.css"
 
@@ -12,7 +11,6 @@ interface Props {
 }
 
 const Card: FC<Props> = ({id, title, description, deleteIdea, toArchive }) => {
-  // const dispatch = useDispatch()
 
   return (
     <div className="card" key={id}>
