@@ -2,12 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './components/App/App';
+import { configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
+import ideasReducer from "./features/saveIdea/saveIdeaSlice"
+
+const store = configureStore({
+  reducer: {
+    ideas: ideasReducer
+  },
+})
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
 );
