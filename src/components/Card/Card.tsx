@@ -17,8 +17,8 @@ const Card: FC<Props> = ({id, title, description, deleteIdea, toArchive }) => {
       <h2>{title}</h2>
       <p>{description}</p>
       <button onClick={() => toArchive(id)}>Archive</button>
-      <button onClick={() => deleteIdea(id)}>Delete</button>
       <button onClick={() => restoreIdea(id)}>Restore</button>
+      <button onClick={() => deleteIdea(id)}>Delete</button>
     </div>
   )
 }
