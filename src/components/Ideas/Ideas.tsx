@@ -1,4 +1,7 @@
 import { FC } from "react"
+// import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
+import { archiveIdea, restoreIdea } from "../../features/saveIdea/saveIdeaSlice"
 import Card from "../Card/Card"
 import "./Ideas.css"
 
@@ -13,9 +16,16 @@ interface Props {
   deleteIdea: (id:number) => void
 }
 
-const Ideas: FC<Props> = ({ideas, deleteIdea}) => {
+const Ideas: FC<Props> = ({ ideas, deleteIdea }) => {
+  const dispatch = useDispatch()
+
   const IdeasList = ideas.map(idea => {
     const {id, title, description} = idea
+
+    const toArchive = () => {
+      dispatch(archiveIdea(idea))
+      deleteIdea(id)
+    }
 
     return (
         <Card 
@@ -24,6 +34,7 @@ const Ideas: FC<Props> = ({ideas, deleteIdea}) => {
           description={description}
           key={id}
           deleteIdea={deleteIdea}
+          toArchive={toArchive}
         />
     )
   })
