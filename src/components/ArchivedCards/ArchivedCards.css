@@ -1,0 +1,13 @@
+/* Archived Ideas.css */
+
+.archived-ideas-container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.error-msg {
+  margin-left: 45vw;
+  white-space: nowrap;
+}
