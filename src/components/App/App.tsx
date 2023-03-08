@@ -1,6 +1,9 @@
 import { FC, useEffect, useState } from "react"
-import Ideas from "../Ideas/Ideas"
+import { Route, Routes } from "react-router-dom"
+import Header from "../Header/Header"
 import Form from "../Form/Form"
+import Ideas from "../Ideas/Ideas"
+import ArchivedCards from "../ArchivedCards/ArchivedCards"
 import "./App.css"
 
 interface Idea {
@@ -31,9 +34,12 @@ const App: FC = () => {
 
   return (
     <main>
-      <h1>IdeaBoxTS</h1>
-      <Form addIdea={addIdea} ideasLength={ideas.length}/>
-      <Ideas ideas={ideas} deleteIdea={deleteIdea}/>
+      <Header />
+      <Form addIdea={addIdea} ideasLength={ideas.length} />
+      <Routes>
+        <Route path="/" element={<Ideas ideas={ideas} deleteIdea={deleteIdea}/>} />
+        <Route path="/archive" element={<ArchivedCards addIdea={addIdea} deleteIdea={deleteIdea}/>} />
+      </Routes>
     </main>
   )
 }
