@@ -10,8 +10,14 @@ interface Idea {
   description: string
 }
 
+interface NewIdea {
+  id: number
+  title: string
+  description: string
+}
+
 interface Props {
-  addIdea: (id:number) => void
+  addIdea: (id:NewIdea) => void
   deleteIdea: (id:number) => void
 }
 
@@ -24,7 +30,7 @@ const ArchivedCards:FC<Props> = ({ addIdea, deleteIdea }) => {
     
     const toArchive = () => {
       dispatch(restoreIdea(idea))
-      addIdea(id)
+      addIdea(idea)
     }
 
     return (
