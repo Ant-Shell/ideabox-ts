@@ -1,0 +1,19 @@
+.header-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.banner-container {
+  margin-left: 42vw;
+}
+
+.banner {
+  margin: 0;
+}
+
+.link-container {
+  margin-left: 35vw;
+}
+
+
