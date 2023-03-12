@@ -8,8 +8,13 @@
   margin-left: 42vw;
 }
 
+.banner-link {
+  text-decoration: none;
+}
+
 .banner {
   margin: 0;
+  color: #000;
 }
 
 .link-container {
