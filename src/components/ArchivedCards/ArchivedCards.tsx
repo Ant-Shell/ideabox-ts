@@ -28,7 +28,7 @@ const ArchivedCards:FC<Props> = ({ addIdea, deleteIdea }) => {
   const ArchivedIdeasList = archivedIdeas.map((idea:Idea) => {
     const {id, title, description} = idea
     
-    const toArchive = () => {
+    const toRestore = () => {
       dispatch(restoreIdea(idea))
       addIdea(idea)
     }
@@ -40,7 +40,7 @@ const ArchivedCards:FC<Props> = ({ addIdea, deleteIdea }) => {
           description={description}
           key={id}
           deleteIdea={deleteIdea}
-          toArchive={toArchive}
+          toRestore={toRestore}
         />
     )
   })
