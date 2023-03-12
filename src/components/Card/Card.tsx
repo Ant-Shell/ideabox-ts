@@ -1,5 +1,4 @@
 import { FC } from "react"
-import { restoreIdea } from "../../features/saveIdea/saveIdeaSlice"
 import "./Card.css"
 
 interface Props {
@@ -7,17 +6,18 @@ interface Props {
   title: string
   description: string
   deleteIdea: (id: number) => void
-  toArchive: (id: number) => void
+  toArchive?: (id: number) => void
+  toRestore?: (id: number) => void
 }
 
-const Card: FC<Props> = ({id, title, description, deleteIdea, toArchive }) => {
+const Card: FC<Props> = ({id, title, description, deleteIdea, toArchive, toRestore }) => {
 
   return (
     <div className="card" key={id}>
       <h2>{title}</h2>
       <p>{description}</p>
-      <button onClick={() => toArchive(id)}>Archive</button>
-      <button onClick={() => restoreIdea(id)}>Restore</button>
+      <button onClick={() => toArchive?.(id)}>Archive</button>
+      <button onClick={() => toRestore?.(id)}>Restore</button>
       <button onClick={() => deleteIdea(id)}>Delete</button>
     </div>
   )
