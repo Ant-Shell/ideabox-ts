@@ -19,9 +19,10 @@ interface NewIdea {
 interface Props {
   addIdea: (id:NewIdea) => void
   deleteIdea: (id:number) => void
+  location: string
 }
 
-const ArchivedCards:FC<Props> = ({ addIdea, deleteIdea }) => {
+const ArchivedCards:FC<Props> = ({ addIdea, deleteIdea, location }) => {
   const dispatch = useDispatch()
   const archivedIdeas = useSelector((state: any) => state.ideas.archivedIdeas)
 
@@ -46,6 +47,7 @@ const ArchivedCards:FC<Props> = ({ addIdea, deleteIdea }) => {
           deleteIdea={deleteIdea}
           toRestore={toRestore}
           deleteArchivedIdea={deleteArchivedIdea}
+          location={location}
         />
     )
   })
