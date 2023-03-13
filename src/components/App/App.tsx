@@ -39,11 +39,26 @@ const App: FC = () => {
       <Routes>
         <Route path="/" element={
           <>
-            <Form addIdea={addIdea} ideasLength={ideas.length} />
-            <Ideas ideas={ideas} deleteIdea={deleteIdea}/>
+            <Form
+              addIdea={addIdea}
+              ideasLength={ideas.length}
+            />
+            <Ideas
+              ideas={ideas}
+              deleteIdea={deleteIdea}
+              location={location.pathname}
+            />
           </>
         } />
-        <Route path="/archive" element={<ArchivedCards addIdea={addIdea} deleteIdea={deleteIdea}/>} />
+        <Route path="/archive"
+        element={
+          <ArchivedCards
+            addIdea={addIdea}
+            deleteIdea={deleteIdea}
+            location={location.pathname}
+            />
+          }
+        />
       </Routes>
     </main>
   )
