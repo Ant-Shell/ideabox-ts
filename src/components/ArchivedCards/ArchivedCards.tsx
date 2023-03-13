@@ -33,6 +33,10 @@ const ArchivedCards:FC<Props> = ({ addIdea, deleteIdea }) => {
       addIdea(idea)
     }
 
+    const deleteArchivedIdea = () => {
+      dispatch(restoreIdea(idea))
+    }
+
     return (
         <Card 
           id={id}
@@ -41,6 +45,7 @@ const ArchivedCards:FC<Props> = ({ addIdea, deleteIdea }) => {
           key={id}
           deleteIdea={deleteIdea}
           toRestore={toRestore}
+          deleteArchivedIdea={deleteArchivedIdea}
         />
     )
   })
