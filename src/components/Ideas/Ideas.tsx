@@ -1,5 +1,4 @@
 import { FC } from "react"
-// import { useDispatch, useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { archiveIdea } from "../../features/saveIdea/saveIdeaSlice"
 import Card from "../Card/Card"
@@ -14,9 +13,10 @@ interface Idea {
 interface Props {
   ideas: Array<Idea>
   deleteIdea: (id:number) => void
+  location: string
 }
 
-const Ideas: FC<Props> = ({ ideas, deleteIdea }) => {
+const Ideas: FC<Props> = ({ ideas, deleteIdea, location }) => {
   const dispatch = useDispatch()
 
   const IdeasList = ideas.map(idea => {
@@ -35,10 +35,11 @@ const Ideas: FC<Props> = ({ ideas, deleteIdea }) => {
           key={id}
           deleteIdea={deleteIdea}
           toArchive={toArchive}
+          location={location}
         />
     )
   })
-  
+
   return (
     <div className="ideas-container">
       {IdeasList}

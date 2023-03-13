@@ -19,18 +19,23 @@ interface NewIdea {
 interface Props {
   addIdea: (id:NewIdea) => void
   deleteIdea: (id:number) => void
+  location: string
 }
 
-const ArchivedCards:FC<Props> = ({ addIdea, deleteIdea }) => {
+const ArchivedCards:FC<Props> = ({ addIdea, deleteIdea, location }) => {
   const dispatch = useDispatch()
   const archivedIdeas = useSelector((state: any) => state.ideas.archivedIdeas)
 
   const ArchivedIdeasList = archivedIdeas.map((idea:Idea) => {
     const {id, title, description} = idea
     
-    const toArchive = () => {
+    const toRestore = () => {
       dispatch(restoreIdea(idea))
       addIdea(idea)
+    }
+
+    const deleteArchivedIdea = () => {
+      dispatch(restoreIdea(idea))
     }
 
     return (
@@ -40,7 +45,9 @@ const ArchivedCards:FC<Props> = ({ addIdea, deleteIdea }) => {
           description={description}
           key={id}
           deleteIdea={deleteIdea}
-          toArchive={toArchive}
+          toRestore={toRestore}
+          deleteArchivedIdea={deleteArchivedIdea}
+          location={location}
         />
     )
   })
