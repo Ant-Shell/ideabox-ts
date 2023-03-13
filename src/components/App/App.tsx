@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react"
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, useLocation } from "react-router-dom"
 import Header from "../Header/Header"
 import Form from "../Form/Form"
 import Ideas from "../Ideas/Ideas"
@@ -14,6 +14,7 @@ interface Idea {
 
 const App: FC = () => {
   const [ideas, setIdeas] = useState<Array<Idea>>([])
+  const location = useLocation()
 
   useEffect(() => {
     setIdeas([
@@ -34,7 +35,7 @@ const App: FC = () => {
 
   return (
     <main>
-      <Header />
+      <Header location={location.pathname}/>
       <Routes>
         <Route path="/" element={
           <>
