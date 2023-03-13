@@ -2,7 +2,17 @@ import { FC } from "react"
 import { Link } from "react-router-dom"
 import "./Header.css"
 
-const Header: FC = () => {
+interface Props {
+  location: string
+}
+
+const textHandler = (location:string, loc:string) => {
+  return location === loc ?
+  <Link to="/archive">Archived Ideas</Link> :
+  <Link to='/'>Current Ideas</Link>
+}
+
+const Header: FC<Props> = ({ location }) => {
   return (
     <header className="header-container">
       <Link to='/' className="banner-link">
@@ -11,7 +21,7 @@ const Header: FC = () => {
         </div>
       </Link>
       <div className="link-container">
-        <Link to="/archive">Archive View</Link>
+        {textHandler(location, '/')}
       </div>
     </header>
   )
