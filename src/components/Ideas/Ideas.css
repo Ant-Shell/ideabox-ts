@@ -7,7 +7,6 @@
   grid-gap: 20px;
 }
 
-.error-msg {
-  margin-left: 45vw;
-  white-space: nowrap;
+.user-notify {
+  justify-content: center;
 }

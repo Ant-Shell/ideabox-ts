@@ -39,22 +39,28 @@ const ArchivedCards:FC<Props> = ({ addIdea, deleteIdea, location }) => {
     }
 
     return (
-        <Card 
-          id={id}
-          title={title}
-          description={description}
-          key={id}
-          deleteIdea={deleteIdea}
-          toRestore={toRestore}
-          deleteArchivedIdea={deleteArchivedIdea}
-          location={location}
-        />
+      <Card 
+        id={id}
+        title={title}
+        description={description}
+        key={id}
+        deleteIdea={deleteIdea}
+        toRestore={toRestore}
+        deleteArchivedIdea={deleteArchivedIdea}
+        location={location}
+      />
     )
   })
-  
+
+  const setStyling = (list:any, style1: string, style2: string):string => {
+    return list.length ? style1 : style2
+  }
+
   return (
-    <div className="archived-ideas-container">
-      {ArchivedIdeasList}
+    <div className={setStyling(ArchivedIdeasList, "archived-ideas-container", "user-notify")}>
+      {ArchivedIdeasList.length ?
+      ArchivedIdeasList :
+      <p>No archived ideas</p>}
     </div>
   )
 }

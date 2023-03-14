@@ -28,7 +28,7 @@ const Ideas: FC<Props> = ({ ideas, deleteIdea, location }) => {
     }
 
     return (
-        <Card 
+        <Card
           id={id}
           title={title}
           description={description}
@@ -40,9 +40,15 @@ const Ideas: FC<Props> = ({ ideas, deleteIdea, location }) => {
     )
   })
 
+  const setStyling = (list:JSX.Element[], style1: string, style2: string):string => {
+    return list.length ? style1 : style2
+  }
+
   return (
-    <div className="ideas-container">
-      {IdeasList}
+    <div className={setStyling(IdeasList, "ideas-container", "user-notify")}>
+      {IdeasList.length ? 
+      IdeasList :
+      <p>Please add some ideas</p>}
     </div>
   )
 }
