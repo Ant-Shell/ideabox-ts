@@ -39,16 +39,16 @@ const ArchivedCards:FC<Props> = ({ addIdea, deleteIdea, location }) => {
     }
 
     return (
-        <Card 
-          id={id}
-          title={title}
-          description={description}
-          key={id}
-          deleteIdea={deleteIdea}
-          toRestore={toRestore}
-          deleteArchivedIdea={deleteArchivedIdea}
-          location={location}
-        />
+      <Card 
+        id={id}
+        title={title}
+        description={description}
+        key={id}
+        deleteIdea={deleteIdea}
+        toRestore={toRestore}
+        deleteArchivedIdea={deleteArchivedIdea}
+        location={location}
+      />
     )
   })
   
